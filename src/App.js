@@ -25,6 +25,10 @@ export default function App() {
       )
     );
   }
+
+  function handleClearList(items) {
+    setItems([]);
+  }
   return (
     <div className="app">
       <Logo />
@@ -33,6 +37,7 @@ export default function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
       <Stats items={items} />
     </div>
@@ -85,7 +90,7 @@ function Form({ onAddItems }) {
   );
 }
 
-function PakingList({ items, onDeleteItem, onToggleItem }) {
+function PakingList({ items, onDeleteItem, onToggleItem, onClearList }) {
   return (
     <div className="list">
       <ul>
@@ -98,6 +103,10 @@ function PakingList({ items, onDeleteItem, onToggleItem }) {
           />
         ))}
       </ul>
+      <div className="actions">
+        <button> Sort </button>
+        <button onClick={() => onClearList()}> Clear list </button>
+      </div>
     </div>
   );
 }
