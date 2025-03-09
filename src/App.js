@@ -23,7 +23,7 @@ export default function App() {
       <Logo />
       <Form onAddItems={handleAddItems} />
       <PakingList items={items} onDeleteItem={handleDeleteItem} />
-      {/* <Stats items={items} /> */}
+      <Stats />
     </div>
   );
 }
@@ -87,21 +87,8 @@ function PakingList({ items, onDeleteItem }) {
 }
 
 function Item({ item, onDeleteItem }) {
-  // const [packed, setPacked] = useState(packedStatus);
-
-  // function handleStatus(e) {
-  //   console.log(e);
-  //   setPacked(!packed);
-  // }
-
   return (
     <li>
-      {/* <input
-        type="checkbox"
-        id={id}
-        checked={packed}
-        onClick={handleStatus}
-      ></input> */}
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}
       </span>
@@ -110,13 +97,10 @@ function Item({ item, onDeleteItem }) {
   );
 }
 
-// function Stats({ items }) {
-//   return (
-//     <footer className="stats">
-//       <em>
-//         You have {items.length} items in your list, and you already packed
-//         {items.filter((item) => item.packed).length} items (X%)
-//       </em>
-//     </footer>
-//   );
-// }
+function Stats() {
+  return (
+    <footer className="stats">
+      <em>You have X items in your list, and you already packed X items(X%)</em>
+    </footer>
+  );
+}
