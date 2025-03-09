@@ -26,8 +26,9 @@ export default function App() {
     );
   }
 
-  function handleClearList(items) {
-    setItems([]);
+  function handleClearList() {
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm("Are you sure you want to delete all items?")) setItems([]);
   }
 
   return (
